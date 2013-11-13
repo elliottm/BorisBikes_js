@@ -11,7 +11,8 @@
 <h1> Boris Bikes </h1>
 
    <div id="person">
-   
+   <button id="personbutton" data-pick='station'>Rent Bike</button>
+   <p id="personlog"> Needs a bike! </p>
    </div>
 
    <div id="person2">
@@ -19,11 +20,14 @@
    </div>
 
    <div id="station">
-   
+   <button id="stationbutton" data-pick='bike'>Load Station</button>
+   <p id="stationlog"> No bikes in station </p>
    </div>
 
-   <button data-pick='bike'>Load Station</button>
-   <p id="stationlog"> No bikes in station </p>
+   
+
+   
+
 
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="bike.js"></script> 
@@ -40,7 +44,7 @@
   var Bike3 = new Bike();
   var Bike4 = new Bike();
 
-  $('button').on('click', function() {
+  $('button#stationbutton').on('click', function() {
   	Station.dockBike(Bike1);
   	Station.dockBike(Bike2);
   	Station.dockBike(Bike3);
@@ -49,12 +53,21 @@
   })
 
 function stationCounter() {
-	$("#stationlog").html("The station has " + count() + " bikes available");
+	$("#stationlog").html("The station has " + countStation() + " bikes available");
 };
  
- function count() {
+ function countStation() {
 	return Station.bikes.length;	
 };
+
+$('button#personbutton').on('click', function() {
+    Person.rentaBike(Station);
+    stationCounter();
+  $("#personlog").html("I now have a bike");
+});
+ 
+
+ 
 
 
   </script>
