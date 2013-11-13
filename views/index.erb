@@ -10,9 +10,54 @@
 
 <h1> Boris Bikes </h1>
 
+   <div id="person">
+   
+   </div>
+
+   <div id="person2">
+   
+   </div>
+
+   <div id="station">
+   
+   </div>
+
+   <button data-pick='bike'>Load Station</button>
+   <p id="stationlog"> No bikes in station </p>
+
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-  <script src="lib/bike.js"></script> 
-  <script src="lib/person.js"></script> 
+  <script src="bike.js"></script> 
+  <script src="person.js"></script> 
+  <script src="station.js"></script>
+
+  <script>
+
+  var Person = new Player('Mark');
+  var Person2 = new Player('Hemang');
+  var Station = new Station('Makers');
+  var Bike1 = new Bike();
+  var Bike2 = new Bike();
+  var Bike3 = new Bike();
+  var Bike4 = new Bike();
+
+  $('button').on('click', function() {
+  	Station.dockBike(Bike1);
+  	Station.dockBike(Bike2);
+  	Station.dockBike(Bike3);
+  	Station.dockBike(Bike4);
+  	stationCounter();
+  })
+
+function stationCounter() {
+	$("#stationlog").html("The station has " + count() + " bikes available");
+};
+ 
+ function count() {
+	return Station.bikes.length;	
+};
+
+
+  </script>
 
   
 
