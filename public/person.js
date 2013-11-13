@@ -7,7 +7,7 @@ Player.prototype.rentaBike = function(station) {
 }
 
 Player.prototype.returnaBike = function(station) {
-	this.bike = station.returns();
+	this.bike = station.dockBike();
 }
 
 Player.prototype.fallOver = function() {
