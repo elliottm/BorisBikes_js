@@ -26,16 +26,16 @@ describe('Person', function() {
   })
 
   it('can return a bike', function() {
-  	var station = { returns:function(){} }
-  	spyOn(station, "returns");
+  	var station = { dockBike:function(){} }
+  	spyOn(station, "dockBike");
   	player1.returnaBike(station);
-  	expect(station.returns).toHaveBeenCalled();
+  	expect(station.dockBike).toHaveBeenCalled();
   })
 
   it('has no bike after returning', function(){
   	var bike = { };
-  	var station = { returns: function() {return null;}};
-  	spyOn(station, "returns");
+  	var station = { dockBike: function() {return null;}};
+  	spyOn(station, "dockBike");
   	player1.returnaBike(station);
   	expect(player1.bike).toEqual();
   })
