@@ -12,6 +12,7 @@
 
    <div id="person"><h3>Mark</h3>
    <p id="personlog"> Needs a bike! </p>
+   <p id="bikestatus"> Bike properties </p>
    <button id="personbutton" data-pick='station'>Rent Bike</button>
    <button id="personbuttonreturn" data-pick='station'>Return Bike</button>
    <button id="personbuttonfall" data-pick='station'>Crash into a cat</button>
@@ -19,8 +20,10 @@
 
    <div id="person2"><h3>Hemang</h3>
    <p id="personlog2"> Needs a bike! </p>
+   <p id="bikestatus2"> Bike properties </p>
    <button id="personbutton2" data-pick='station'>Rent Bike</button>
    <button id="personbuttonreturn2" data-pick='station'>Return Bike</button>
+   <button id="personbuttonfall2" data-pick='station'>Crash into a cat</button>
    </div>
    <br><br>
    <div id="station"><h3>STATION</h3>
@@ -74,12 +77,15 @@ $('button#personbuttonreturn').on('click', function() {
     Person.returnaBike(Station);
     stationCounter();
   $("#personlog").html("I've returned a bike");
+  $("#bikestatus").html("I no longer have a bike, but returned a broken one");
 });
 
 $('button#personbuttonfall').on('click', function() {
-    Person.fallover();
-  $("#personlog").html("I now have a bike");
+    Person.fallOver();
+  $("#bikestatus").html("Broken bike");
 });
+
+
 
 
 $('button#personbutton2').on('click', function() {
@@ -92,6 +98,11 @@ $('button#personbuttonreturn2').on('click', function() {
     Person2.returnaBike(Station);
     stationCounter();
   $("#personlog2").html("I've returned a bike");
+});
+
+$('button#personbuttonfall2').on('click', function() {
+    Person2.fallOver();
+  $("#bikestatus2").html("Broken bike");
 });
 
 
