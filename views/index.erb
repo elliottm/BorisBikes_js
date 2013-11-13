@@ -10,19 +10,22 @@
 
 <h1> Boris Bikes </h1>
 
-   <div id="person">
+   <div id="person"><h3>Mark</h3>
+   <p id="personlog"> Needs a bike! </p>
    <button id="personbutton" data-pick='station'>Rent Bike</button>
    <button id="personbuttonreturn" data-pick='station'>Return Bike</button>
-   <p id="personlog"> Needs a bike! </p>
+   <button id="personbuttonfall" data-pick='station'>Crash into a cat</button>
    </div>
 
-   <div id="person2">
-   
+   <div id="person2"><h3>Hemang</h3>
+   <p id="personlog2"> Needs a bike! </p>
+   <button id="personbutton2" data-pick='station'>Rent Bike</button>
+   <button id="personbuttonreturn2" data-pick='station'>Return Bike</button>
    </div>
-
-   <div id="station">
-   <button id="stationbutton" data-pick='bike'>Load Station</button>
+   <br><br>
+   <div id="station"><h3>STATION</h3>
    <p id="stationlog"> No bikes in station </p>
+   <button id="stationbutton" data-pick='bike'>Load Station</button>
    </div>
 
    
@@ -73,6 +76,23 @@ $('button#personbuttonreturn').on('click', function() {
   $("#personlog").html("I've returned a bike");
 });
 
+$('button#personbuttonfall').on('click', function() {
+    Person.fallover();
+  $("#personlog").html("I now have a bike");
+});
+
+
+$('button#personbutton2').on('click', function() {
+    Person2.rentaBike(Station);
+    stationCounter();
+  $("#personlog2").html("I now have a bike");
+});
+ 
+$('button#personbuttonreturn2').on('click', function() {
+    Person2.returnaBike(Station);
+    stationCounter();
+  $("#personlog2").html("I've returned a bike");
+});
 
 
   </script>
