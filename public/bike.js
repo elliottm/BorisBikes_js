@@ -3,9 +3,9 @@ function Bike() {
 }
 
 Bike.prototype.breaks = function() {
-	this.broken = true;
+  this.broken = true;
 }
 
 Bike.prototype.fix = function() {
-	this.broken = false
+  this.broken = false;
 }
